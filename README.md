@@ -319,10 +319,11 @@ python visualization/generate_charts.py
 # 3. Run data pipeline
 ```
 
+```bash
 python scripts/data_generation/generate_data.py
 python scripts/mongodb/mongodb_integration.py
 python scripts/mongodb/mongodb_query.py
-
+```
 ---
 
 # 🧠 MongoDB Sharding (Version 2 Enhancement)
