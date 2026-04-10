@@ -21,12 +21,12 @@ The pipeline includes:
 
 During the development process, the project evolved into two versions:
 
-### Version 1 (Baseline Pipeline)
+### Version 1 (Baseline Pipeline) in project folder
 - Data is generated and stored in MongoDB
 - Data is processed using Spark
 - MongoDB is used as a centralized storage system
 
-### Version 2 (Optimized Sharded Pipeline)
+### Version 2 (Optimized Sharded Pipeline) in project_v2 folder
 - Data is generated and directly uploaded into a **MongoDB sharded cluster**
 - Data is distributed across multiple shards (shardA and shardB)
 - The system connects through **mongos (port 27120)**
@@ -141,7 +141,9 @@ python scripts/data_generation/generate_data.py
 
 ---
 
-# ⚙️ How to Run
+# ⚙️ How to Run 
+
+Version 1 (Baseline Pipeline)
 
 ## 1️⃣ Generate Data
 
@@ -184,6 +186,67 @@ python scripts/prediction/predict_analysis.py
 ```bash
 python visualization/generate_charts.py
 ```
+
+🔹 Version 2 (Sharded Cluster Pipeline)
+
+⚠️ Version 2 requires MongoDB Sharding environment to be running
+1️⃣ Start MongoDB Sharding Cluster
+
+Run PowerShell scripts (example):
+
+# Start config server
+mongod --configsvr --replSet configReplSet --port 27019 --dbpath D:\mongo\config
+
+# Start shard A
+mongod --shardsvr --replSet shardA --port 27018 --dbpath D:\mongo\shardA
+
+# Start shard B
+mongod --shardsvr --replSet shardB --port 27028 --dbpath D:\mongo\shardB
+
+# Start mongos router
+mongos --configdb configReplSet/localhost:27019 --port 27120
+
+2️⃣ Initialize Sharding (One-time setup)
+
+Inside mongo shell:
+
+sh.addShard("shardA/localhost:27018")
+sh.addShard("shardB/localhost:27028")
+
+sh.enableSharding("your_database")
+sh.shardCollection("your_database.your_collection", { forklift_id: "hashed" })
+3️⃣ Run Data Generation
+python scripts/data_generation/generate_data.py
+4️⃣ Upload Data to Sharded Cluster
+
+⚠️ 注意：这里必须连接 mongos（27120）
+
+python scripts/mongodb/mongodb_integration.py
+5️⃣ Verify Sharding
+sh.status()
+
+Expected:
+
+Data split across shardA and shardB
+Balanced distribution
+6️⃣ Run Queries (Same as V1)
+python scripts/mongodb/mongodb_query.py
+7️⃣ Spark Analysis (Optional but recommended)
+python scripts/spark/spark_analysis.py
+8️⃣ Visualization
+python visualization/generate_charts.py
+▶️ Quick Start
+🔹 Version 1 (Simple)
+python scripts/data_generation/generate_data.py
+python scripts/spark/spark_analysis.py
+python visualization/generate_charts.py
+🔹 Version 2 (Sharded)
+# 1. Start MongoDB Sharding cluster
+# 2. Run data pipeline
+
+python scripts/data_generation/generate_data.py
+python scripts/mongodb/mongodb_integration.py
+python scripts/mongodb/mongodb_query.py
 
 ---
 
