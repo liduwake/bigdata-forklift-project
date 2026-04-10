@@ -237,7 +237,7 @@ sh.shardCollection("your_database.your_collection", { forklift_id: "hashed" })
 python scripts/data_generation/generate_data.py
 4️⃣ Upload Data to Sharded Cluster
 
-⚠️ 注意：这里必须连接 mongos（27120）
+⚠️ note：must connect mongos（27120）
 
 python scripts/mongodb/mongodb_integration.py
 5️⃣ Verify Sharding
@@ -344,6 +344,9 @@ Purpose:
 - Compare operational conditions  
 - Support decision-making  
 
+A local web portal is accessed to real-time data by implementing **Streamlit**.
+
+![result](project/dashboard/Forklift_Dashboard.png)
 ---
 
 # 🔍 Key Insights
