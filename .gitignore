@@ -1,45 +1,52 @@
-# =========================
-# KEEP ONLY THESE
-# =========================
+# Ignore everything at root by default
+/*
+
+# Keep only these in repo root
 !README.md
 !.gitignore
 !project/
 !project_v2/
 
-# =========================
-# IGNORE EVERYTHING ELSE
-# =========================
-*
-
-# =========================
-# BUT allow contents inside project folders
-# =========================
+# Allow everything inside project folders
 !project/**
 !project_v2/**
 
-# =========================
-# STILL IGNORE USELESS FILES INSIDE PROJECTS
-# =========================
+# Ignore useless files inside project folders
+project/**/__pycache__/
+project/**/*.pyc
+project/**/.ipynb_checkpoints/
+project/**/.vscode/
+project/**/.idea/
 
-# Python cache
-__pycache__/
-*.pyc
-.ipynb_checkpoints/
+project_v2/**/__pycache__/
+project_v2/**/*.pyc
+project_v2/**/.ipynb_checkpoints/
+project_v2/**/.vscode/
+project_v2/**/.idea/
 
-# IDE
-.vscode/
-.idea/
+# Ignore generated output/data
+project/output/
+project/data/
+project_v2/output/
+project_v2/data/
 
-# OS
-.DS_Store
-Thumbs.db
+# Ignore MongoDB runtime directories only
+project/mongodb-sharding-clean/config/
+project/mongodb-sharding-clean/shard1/
+project/mongodb-sharding-clean/shard2/
+project/mongodb-sharding-clean/logs/
 
-# MongoDB runtime files
-config/
-shard1/
-shard2/
-logs/
+project/mongodb-sharding/config/
+project/mongodb-sharding/shard1/
+project/mongodb-sharding/shard2/
+project/mongodb-sharding/logs/
 
-# temp
-*.log
-*.tmp
+project_v2/mongodb-sharding-clean/config/
+project_v2/mongodb-sharding-clean/shard1/
+project_v2/mongodb-sharding-clean/shard2/
+project_v2/mongodb-sharding-clean/logs/
+
+project_v2/mongodb-sharding/config/
+project_v2/mongodb-sharding/shard1/
+project_v2/mongodb-sharding/shard2/
+project_v2/mongodb-sharding/logs/
