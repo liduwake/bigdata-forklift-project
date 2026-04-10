@@ -1,6 +1,12 @@
 import streamlit as st
 import pandas as pd
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+RESULT_DIR = os.path.join(BASE_DIR, "output", "spark_results")
+
+category_df = pd.read_csv(os.path.join(RESULT_DIR, "category_counts.csv"))
 st.set_page_config(page_title="Forklift Dashboard", layout="wide")
 
 st.title("🚜 Forklift Big Data Dashboard")
@@ -8,10 +14,10 @@ st.title("🚜 Forklift Big Data Dashboard")
 # =========================
 # LOAD DATA
 # =========================
-category_df = pd.read_csv("output/spark_results/category_counts.csv")
-zone_df = pd.read_csv("output/spark_results/zone_counts.csv")
-status_df = pd.read_csv("output/spark_results/status_counts.csv")
-top_df = pd.read_csv("output/spark_results/active_work_by_forklift.csv")
+category_df = pd.read_csv("../output/spark_results/category_counts.csv")
+zone_df = pd.read_csv("../output/spark_results/zone_counts.csv")
+status_df = pd.read_csv("../output/spark_results/status_counts.csv")
+top_df = pd.read_csv("../output/spark_results/active_work_by_forklift.csv")
 
 # =========================
 # SHOW TABLES
