@@ -473,11 +473,12 @@ The difference was small, which is reasonable because:
 - the experiment was run in a local environment
 - Spark overhead is still significant at this scale
 
-Even so, **Parquet was slightly faster**, which still supports the value of storage format optimization.
+Even so, **Parquet was slightly faster**, but performance much smaller in file zise.
 
 ### Evidence
 
 ![result](project/images/CSV_VS_Parquet.png)
+![result](project/images/csv_vs_parquet_size.png)
 
 ---
 
