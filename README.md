@@ -39,21 +39,39 @@ This improvement demonstrates how a basic pipeline can be extended into a more s
 ## 🧱 Project Structure
 
 ```
-project/
+## 🧱 Project Structure
+
+```text
+bigdata/
 │
-├── config/                  
-├── scripts/
-│   ├── data_generation/     
-│   ├── spark/               
-│   ├── mongodb/             
-│   ├── prediction/          
-│   └── testing/             
+├── README.md
+├── assignment/
 │
-├── visualization/           
-├── output/                  
-├── data/        (not included)  
-├── sharding/   (not included)
-```
+├── project/
+│   ├── config/
+│   ├── scripts/
+│   │   ├── data_generation/
+│   │   ├── spark/
+│   │   ├── mongodb/
+│   │   ├── prediction/
+│   │   └── testing/
+│   ├── visualization/
+│   ├── output/
+│   ├── data/                 (not included)
+│   └── sharding/             (not included)
+│
+└── project v2/
+    ├── config/
+    ├── scripts/
+    │   ├── data_generation/
+    │   ├── spark/
+    │   ├── mongodb/
+    │   ├── prediction/
+    │   └── testing/
+    ├── visualization/
+    ├── output/
+    ├── data/                 (not included)
+    └── sharding/             (not included)
 
 ---
 
