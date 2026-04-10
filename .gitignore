@@ -1,0 +1,45 @@
+# =========================
+# KEEP ONLY THESE
+# =========================
+!README.md
+!.gitignore
+!project/
+!project_v2/
+
+# =========================
+# IGNORE EVERYTHING ELSE
+# =========================
+*
+
+# =========================
+# BUT allow contents inside project folders
+# =========================
+!project/**
+!project_v2/**
+
+# =========================
+# STILL IGNORE USELESS FILES INSIDE PROJECTS
+# =========================
+
+# Python cache
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MongoDB runtime files
+config/
+shard1/
+shard2/
+logs/
+
+# temp
+*.log
+*.tmp
