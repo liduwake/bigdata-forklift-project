@@ -438,7 +438,7 @@ This shows:
 
 ### Evidence
 
-![result](images/spark_vs_mongodb.png)
+![result](project/images/spark_vs_mongodb.png)
 
 ---
 
@@ -477,7 +477,7 @@ Even so, **Parquet was slightly faster**, which still supports the value of stor
 
 ### Evidence
 
-![result](images/CSV_VS_Parquet.png)
+![result](project/images/CSV_VS_Parquet.png)
 
 ---
 
@@ -495,7 +495,7 @@ This improves result presentation and supports the bonus requirement for buildin
 
 ### Evidence
 
-![Streamlit dashboard](images/streamlit_dashboard.png)
+![Streamlit dashboard](project/images/streamlit_dashboard.png)
 
 ---
 
